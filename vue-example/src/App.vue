@@ -7,7 +7,7 @@
   </template>
   
   <script setup>
-  import { nuiProxy } from '@/api/NuiProxy'
+  import { nuiProxy } from './api/NuiProxy'
   import { ref } from 'vue'
   
   const message = ref('Hello FiveM with Vite!')
