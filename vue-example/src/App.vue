@@ -7,6 +7,7 @@
   </template>
   
   <script setup>
+  import { nuiProxy } from '@/api/NuiProxy'
   import { ref } from 'vue'
   
   const message = ref('Hello FiveM with Vite!')
@@ -21,15 +22,7 @@
   
   // 發送消息到遊戲
   const sendMessage = () => {
-    fetch(`https://${GetParentResourceName()}/callback`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: 'Hello from Vue!' }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        response.value = data.message
-      })
+    nuiProxy.emit(`${GetParentResourceName()}/callback`, { data: 'Hello from Vue!' })
   }
   </script>
   
